@@ -65,12 +65,12 @@
         const locationName = inputLocation.value;
         //console.log(locationName);
 
-        const api = `https://api.openweathermap.org/data/2.5/weather?q=${locationName}&appid=b160f6d0e197a5fbb092defdc5f320f7`;
+        const api = `https://api.openweathermap.org/data/2.5/weather?q=${locationName}&appid=b160f6d0e197a5fbb092defdc5f320f7&units=metric`;
         fetch(api)
           .then((res) => res.json())
           .then((data) => {
             console.log(api.status);
-            const temp = (data.main.temp / 10).toFixed(2);
+            const temp = data.main.temp;
             document.getElementById('weather-location').innerText = data.name;
             document.getElementById('temperature').innerText = temp;
             document.getElementById('description').innerText =
